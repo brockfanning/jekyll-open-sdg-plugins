@@ -172,6 +172,24 @@
                     "type": "boolean",
                     "description": "This setting can be used to show navigation links to the previous/next goals.",
                     "format": "checkbox"
+                },
+                "goals": {
+                    "options": {"collapsed": true},
+                    "type": "array",
+                    "title": "Content per goal",
+                    "description": "This setting can be used to enter details for each goal.",
+                    "items": {
+                        "type": "object",
+                        "title": "Goal",
+                        "properties": {
+                            "content": {
+                                "type": "string",
+                                "title": "Content",
+                                "format": "markdown",
+                                "description": "Markdown content or a translation key for this goal."
+                            }
+                        }
+                    }
                 }
             },
             "links": [
