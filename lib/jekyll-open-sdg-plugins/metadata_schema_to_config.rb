@@ -16,24 +16,33 @@ module JekyllOpenSdgPlugins
       t = site.data['translations']
       lang = language_config[0]
 
-      if form_config && form_config.key?('metadata_scopes') && form_config['metadata_scopes'].length() > 0
-
-        schema = {}
-        scopes = []
-        form_config['metadata_scopes'].each do |scope|
-          schema[scope['scope']] = {
-            "type" => "object",
-            "title" => "Open SDG " + scope['label'],
-            "properties" => {},
-          }
-          scopes.append(scope['scope'])
+      if form_config
+        metadata_form_config = site.config['indicator_metadata_form']
+        scopes = ['national', 'global']
+        if metadata_form_config && metadata_form_config.has_key?('scopes')
+          if metadata_form_config['scopes'].kind_of?(Array) && metadata_form_config['scopes'].length() > 0
+            scopes = metadata_form_config['scopes']
+          end
+        end
+        exclude_fields = []
+        if metadata_form_config && metadata_form_config.has_key?('exclude_fields')
+          if metadata_form_config['exclude_fields'].kind_of?(Array) && metadata_form_config['exclude_fields'].length() > 0
+            exclude_fields = metadata_form_config['exclude_fields']
+          end
         end
 
+        schema = {
+          "type" => "object",
+          "title" => "Edit Metadata",
+          "properties" => {},
+        }
+
         site.data['schema'].each do |field|
+          field_name = field['name']
           field_scope = field['field']['scope']
           next unless scopes.include?(field_scope)
+          next if exclude_fields.include?(field_name)
 
-          field_name = field['name']
           to_translate = field_name
           if field['field'].has_key?('translation_key')
             to_translate = field['field']['translation_key']
@@ -44,12 +53,13 @@ module JekyllOpenSdgPlugins
           end
           field_label = opensdg_translate_key(to_translate, t, lang)
 
-          schema[field_scope]['properties'][field_name] = {
+          schema['properties'][field_name] = {
             "type" => "string",
             "format" => "markdown",
             "title" => field_label,
+            "description" => 'Scope: ' + field_scope,
           }
-          schema[field_scope]['additionalProperties'] = true
+          schema['additionalProperties'] = true
         end
 
         # Regardless place the schema in site data so it can be used in Jekyll templates.
