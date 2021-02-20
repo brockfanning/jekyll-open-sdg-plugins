@@ -308,13 +308,36 @@
         },
         "data_edit_url": {
             "type": "string",
-            "minLength": 1,
             "title": "Data edit URL",
             "description": "This setting controls the URL of the 'Edit Data' buttons that appear on the staging site's indicator pages.",
             "links": [
                 {
                     "rel": "More information on the data edit URL setting",
                     "href": "https://open-sdg.readthedocs.io/en/latest/configuration/#data_edit_url"
+                }
+            ]
+        },
+        "data_fields": {
+            "options": {"collapsed": true},
+            "type": "object",
+            "title": "Data fields",
+            "description": "Control the names of fields used for special purposes in data.",
+            "properties": {
+                "units": {
+                    "type": "string",
+                    "title": "Units",
+                    "description": "Field to reserve for units of measurement. Defaults to 'Units'."
+                },
+                "series": {
+                    "type": "string",
+                    "title": "Series",
+                    "description": "Field to reserve for the SDG series. Defaults to 'Series'."
+                }
+            },
+            "links": [
+                {
+                    "rel": "More information on the data fields setting",
+                    "href": "https://open-sdg.readthedocs.io/en/latest/configuration/#data_fields"
                 }
             ]
         },
@@ -907,7 +930,6 @@
         },
         "metadata_edit_url": {
             "type": "string",
-            "minLength": 1,
             "title": "Metadata edit URL",
             "description": "This setting controls the URL of the 'Edit Metadata' buttons that appear on the staging site's indicator pages.",
             "links": [
