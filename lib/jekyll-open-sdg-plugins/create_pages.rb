@@ -30,7 +30,7 @@ module JekyllOpenSdgPlugins
       # To use the default 4 pages, simply put:
       #
       # create_pages: true
-      if site.config['languages'] and site.config['create_pages']
+      if (site.config['languages'] and site.config['create_pages'])
 
         default_pages = [
           {
@@ -54,7 +54,7 @@ module JekyllOpenSdgPlugins
           }
         ]
         pages = default_pages
-        if site.config['create_pages'].is_a?(Hash) and site.config['create_pages'].key?('pages')
+        if (site.config['create_pages'].is_a?(Hash) and site.config['create_pages'].key?('pages'))
           # Backwards compatability to support the deprecated "pages" key.
           pages = site.config['create_pages']['pages']
         elsif site.config['create_pages'].is_a?(Array)
@@ -67,13 +67,15 @@ module JekyllOpenSdgPlugins
         # Hardcode the site configuration page if it's not already there.
         config_page = pages.find { |page| page['layout'] == 'config-builder' }
         if config_page == nil
-          if site.config['create_config_forms'] && site.config['create_config_forms'].key?('layout') && site.config['create_config_forms']['layout'] != ''
+          form_settings = site.config['site_config_form']
+          if form_settings && form_settings['enabled']
             pages.push({
               'folder' => '/config',
-              'layout' => site.config['create_config_forms']['layout'],
+              'layout' => 'config-builder',
               'title' => 'Open SDG site configuration',
               'config_type' => 'site',
-              'config_filename' => 'site_config.yml'
+              'config_filename' => 'site_config.yml',
+              'form_settings' => form_settings,
             })
           end
         end
