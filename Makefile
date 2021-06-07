@@ -10,7 +10,7 @@ clean:
 
 install: clean
 	git clone https://github.com/open-sdg/open-sdg-site-starter.git
-	git clone https://github.com/open-sdg/open-sdg.git
+	git clone https://github.com/pixerize/open-sdg.git
 	# Copy all the theme files into the site starter.
 	cp -r open-sdg/_includes/* open-sdg-site-starter/_includes/
 	cp -r open-sdg/_layouts/* open-sdg-site-starter/_layouts/
