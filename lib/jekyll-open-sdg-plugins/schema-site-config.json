@@ -808,6 +808,22 @@
                 }
             ]
         },
+        "ignored_disaggregations": {
+            "options": {"collapsed": true},
+            "type": "array",
+            "title": "Ignored disaggregations",
+            "description": "An optional list of disaggregations (ie, data column names) to omit from the disaggregation sidebar on indicator pages.",
+            "items": {
+                "type": "string",
+                "title": "Ignored disaggregation"
+            },
+            "links": [
+                {
+                    "rel": "More information on the ignored disaggregation setting",
+                    "href": "https://open-sdg.readthedocs.io/en/latest/configuration/#ignored_disaggregations"
+                }
+            ]
+        },
         "indicator_config_form": {
             "options": {"collapsed": true},
             "type": "object",
