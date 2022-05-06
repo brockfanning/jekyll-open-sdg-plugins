@@ -136,6 +136,7 @@ module JekyllOpenSdgPlugins
         site.data['reporting'] = site.data[first_language]['reporting']
         site.data['schema'] = site.data[first_language]['schema']
         site.data['zip'] = site.data[first_language]['zip']
+        site.data['data_config'] = site.data[first_language]['data_config']
       else
         # For untranslated builds, we download one build only, and place it
         # in the "root" (so to speak) of site.data. Nothing else is needed.
