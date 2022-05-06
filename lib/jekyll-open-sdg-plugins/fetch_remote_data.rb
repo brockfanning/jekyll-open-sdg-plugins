@@ -23,6 +23,7 @@ module JekyllOpenSdgPlugins
         'schema' => 'meta/schema.json',
         'reporting' => 'stats/reporting.json',
         'disaggregation' => 'stats/disaggregation.json',
+        'data_config' => 'stats/options.json',
         'translations' => 'translations/translations.json',
         'zip' => 'zip/all_indicators.json',
         'indicator_downloads' => 'downloads/indicator-downloads.json',
