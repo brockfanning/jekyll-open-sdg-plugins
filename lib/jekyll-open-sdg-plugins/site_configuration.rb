@@ -15,21 +15,32 @@ module JekyllOpenSdgPlugins
     # place it in site_config and/or site_config_prod in your data directory.
     def generate(site)
 
+      puts 'here'
+
       if site.data.has_key?('site_config')
         hash_to_hash(site.data['site_config'], site.config)
       end
 
+      puts 'before prod override'
+      puts site.config['remote_data_prefix']
+
       production = false
       if Jekyll.env == 'production'
+        puts 'Jekyll.env'
         production = true
       end
       if site.config.has_key?('environment') && site.config['environment'] == 'production'
+        puts 'site.config["environment"]'
         production = true
       end
 
       if production && site.data.has_key?('site_config_prod')
+        puts 'overriding prod'
         hash_to_hash(site.data['site_config_prod'], site.config)
       end
+
+      puts 'after prod override'
+      puts site.config['remote_data_prefix']
 
       # Look for environment variables for some settings.
       env_settings = [
