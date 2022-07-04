@@ -24,10 +24,15 @@ module JekyllOpenSdgPlugins
       puts 'before prod override'
       puts site.config['remote_data_prefix']
 
+
       production = false
       if Jekyll.env == 'production'
         puts 'Jekyll.env'
         production = true
+      end
+      if site.config.has_key?('environment')
+        puts 'environment yeah'
+        puts site.config['environment']
       end
       if site.config.has_key?('environment') && site.config['environment'] == 'production'
         puts 'site.config["environment"]'
