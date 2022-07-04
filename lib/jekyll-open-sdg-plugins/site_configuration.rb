@@ -34,6 +34,10 @@ module JekyllOpenSdgPlugins
         production = true
       end
 
+      if production
+        puts 'production yeah'
+      end
+
       if production && site.data.has_key?('site_config_prod')
         puts 'overriding prod'
         hash_to_hash(site.data['site_config_prod'], site.config)
