@@ -114,20 +114,25 @@
             "items": {
                 "type": "object",
                 "title": "Starting value",
-                "properties": {
-                    "field": {
-                        "type": "string",
-                        "minLength": 1,
-                        "title": "Field",
-                        "description": "The field (column) name."
-                    },
-                    "value": {
-                        "type": "string",
-                        "minLength": 1,
-                        "title": "Value",
-                        "description": "The value in that field to pre-select."
+                "allOf": [
+                    { "$ref": "#/definitions/series_unit_constraint" },
+                    {
+                        "properties": {
+                            "field": {
+                                "type": "string",
+                                "minLength": 1,
+                                "title": "Field",
+                                "description": "The field (column) name."
+                            },
+                            "value": {
+                                "type": "string",
+                                "minLength": 1,
+                                "title": "Value",
+                                "description": "The value in that field to pre-select."
+                            }
+                        }
                     }
-                }
+                ]
             },
             "links": [
                 {
