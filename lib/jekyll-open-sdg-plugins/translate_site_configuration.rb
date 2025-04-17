@@ -12,8 +12,9 @@ module JekyllOpenSdgPlugins
       if site.config['languages']
         site.config['languages'].each_with_index do |language, index|
           puts language
+          puts site.data[language]
         end
-        puts site.data['translations']
+        #puts site.data['translations']
       end
     end
   end
