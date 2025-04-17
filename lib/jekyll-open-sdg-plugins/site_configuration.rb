@@ -80,14 +80,6 @@ module JekyllOpenSdgPlugins
           },
         ]
       end
-
-      # Some site configurations need to be translated.
-      if site.config['languages']
-        site.config['languages'].each_with_index do |language, index|
-          puts language
-        end
-        puts site.data['translations']
-      end
     end
 
     # Copy properties from a hash onto another hash.
