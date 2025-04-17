@@ -86,7 +86,7 @@ module JekyllOpenSdgPlugins
         site.config['languages'].each_with_index do |language, index|
           puts language
         end
-        puts site.data['translations'].inspect
+        puts site.data['translations']
       end
     end
 
