@@ -13,7 +13,10 @@ module JekyllOpenSdgPlugins
         site.config['languages'].each_with_index do |language, index|
             puts language
             site.data['translated_site_config'][language] = {}
-            puts site.data['translations'][language]['REPORTING_TYPE']
+            reportingtype = site.data['data_fields']['reportingtype']
+            reportingtype_national = site.data['data_fields']['reportingtype_national']
+            reportingtype_global = site.data['data_fields']['reportingtype_global']
+            puts site.data['translations'][language][reportingtype]
         end
     end
   end
