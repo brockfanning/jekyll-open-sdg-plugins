@@ -542,7 +542,7 @@ module JekyllOpenSdgPlugins
           doc.data['logo'] = logo
 
           # Set the reporting type variables for this page.
-          translated_site_config = doc.data['translated_site_config'][doc.data['language']]
+          translated_site_config = site.data['translated_site_config'][doc.data['language']]
           doc.data['reportingtype'] = translated_site_config['data_fields']['reportingtype']
           doc.data['reportingtype_national'] = translated_site_config['data_fields']['reportingtype_national']
           doc.data['reportingtype_global'] = translated_site_config['data_fields']['reportingtype_global']
