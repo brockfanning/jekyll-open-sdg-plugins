@@ -50,6 +50,12 @@ module JekyllOpenSdgPlugins
             iframe_permalink = permalink + '-iframe'
             iframe_dir = index == 0 ? iframe_permalink : File.join(language_public, iframe_permalink)
             site.collections['pages'].docs << IndicatorPage.new(site, site.source, iframe_dir, inid, language, iframe_layout)
+            # Also create the global/national comparison verison.
+            if indicator_config && indicator_config['global_national_comparison']
+              comparison_layout = 'indicator-comparison'
+              comparison_dir = File.join(dir, 'compare')
+              site.collections['pages'].docs << IndicatorPage.new(site, site.source, comparison_dir, inid, language, comparison_layout)
+            end
           end
         end
         # Create the indicator settings configuration/metadata/data pages.

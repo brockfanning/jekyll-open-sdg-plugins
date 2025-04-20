@@ -547,7 +547,7 @@ module JekyllOpenSdgPlugins
           doc.data['reportingtype_national'] = translated_site_config['data_fields']['reportingtype_national']
           doc.data['reportingtype_global'] = translated_site_config['data_fields']['reportingtype_global']
 
-          if collection == 'indicators' || doc.data['layout'] == 'indicator-iframe'
+          if collection == 'indicators' || doc.data['layout'] == 'indicator-iframe' || doc.data['layout'] == 'indicator-comparison'
             # For indicators we also set the current indicator/target/goal.
             if doc.data.has_key? 'indicator_number'
               indicator_number = doc.data['indicator_number']
