@@ -43,6 +43,7 @@ module JekyllOpenSdgPlugins
                 language
             )
             site.data['translated_site_config'][language]['data_fields'] = translated_settings
+            puts site.data['translated_site_config'][language]
         end
     end
   end
