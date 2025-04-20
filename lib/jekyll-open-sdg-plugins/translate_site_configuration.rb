@@ -22,6 +22,7 @@ module JekyllOpenSdgPlugins
         if site.data['data_fields']['reportingtype_global'].nil?
             site.data['data_fields']['reportingtypeglobal'] = 'G'
         end
+        puts site.data['data_fields']
 
         site.data['translated_site_config'] = {}
         site.config['languages'].each_with_index do |language, index|
