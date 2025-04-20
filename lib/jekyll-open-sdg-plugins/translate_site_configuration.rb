@@ -50,7 +50,7 @@ module JekyllOpenSdgPlugins
                 reportingtype_global_translated = reportingtype_global
             end
             reportingtype_national_translated = opensdg_translate_key(
-                reportingtype_national_translated,
+                reportingtype_national_key,
                 site.data['translations'],
                 language
             )
