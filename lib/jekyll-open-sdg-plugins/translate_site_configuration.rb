@@ -20,7 +20,7 @@ module JekyllOpenSdgPlugins
             site.data['data_fields']['reportingtype_national'] = 'N'
         end
         if site.data['data_fields']['reportingtype_global'].nil?
-            site.data['data_fields']['reportingtypeglobal'] = 'G'
+            site.data['data_fields']['reportingtype_global'] = 'G'
         end
         puts site.data['data_fields']
 
