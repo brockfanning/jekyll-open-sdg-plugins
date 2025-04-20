@@ -25,6 +25,7 @@ module JekyllOpenSdgPlugins
 
         site.data['translated_site_config'] = {}
         site.config['languages'].each_with_index do |language, index|
+            site.data['translated_site_config'][language] = {}
             translated_settings = {}
             translated_settings['reportingtype'] = opensdg_translate_key(
                 site.data['data_fields']['reportingtype'] + '.' + site.data['data_fields']['reportingtype'],
@@ -41,7 +42,7 @@ module JekyllOpenSdgPlugins
                 site.data['translations'],
                 language
             )
-            site.data['translated_site_config'][language] = translated_settings
+            site.data['translated_site_config'][language]['data_fields'] = translated_settings
         end
     end
   end
