@@ -9,13 +9,11 @@ module JekyllOpenSdgPlugins
     # Some site configuration settings need to be translated.
     def generate(site)
 
-      if site.config['languages']
-        site.config['languages'].each_with_index do |language, index|
-          puts language
-          puts site.data[language]
-        end
-        #puts site.data['translations']
-      end
+    site.data['translated_site_config'] = {}
+    site.config['languages'].each_with_index do |language, index|
+        puts language
+        site.data['translated_site_config'][language] = {}
+        puts site.data['translations'][language]
     end
   end
 end
